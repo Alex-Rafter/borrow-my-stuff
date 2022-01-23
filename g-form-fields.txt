@@ -1,0 +1,14 @@
+null: entry.664743125=Post%20Title&
+null: entry.1206457380=Desc%20Example&
+null: entry.430716838=Url%20Example1
+
+Json POST
+https://docs.google.com/forms/d/e/[FORM_ID]/formResponse?entry.1098499744=AnswerField1&entry.1090138332=AnswerField2
+
+from: 
+https://stackoverflow.com/questions/18073971/http-post-to-a-google-form
+
+Get form entry ids by viewing form after sneding to myself
+
+Example: 
+https://docs.google.com/forms/d/e/1FAIpQLSfxOEOVuiuAWuz2ItL08MyeFDXUGBWHCWOj8My8isYBX0ilGQ/formResponse?entry.664743125=Post%20Req%20Title&entry.1206457380=Description%20Example&entry.430716838=Another%20Url%20Example1

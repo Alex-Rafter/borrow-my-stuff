@@ -18,8 +18,6 @@ router.use(logger)
   
 const users = [{ name: 'sally' }, { name: 'john' }]
 
-
-
 // router.param('id', (req, res, next, id) => {
 //   req.user = users[id]
 //   next()

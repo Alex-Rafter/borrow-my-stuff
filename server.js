@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const mailMe = require('./mail.js')
 
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
@@ -15,5 +16,9 @@ app.get('/', (req, res) => {
 const userRoute = require('./routes/users')
 app.use('/users', userRoute)
 
+app.get('/item', (req, res) => {
+  console.log(`param: ${req.query.email}`)
+  mailMe(req.query.email)  
+})
 
 app.listen(3000)

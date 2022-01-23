@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        /* .d-flex {
+            display: flex;
+        } */
+
+    </style>
+    <title>Document</title>
+</head>
+<body id="root">
+    <section v-scope v-cloak>
+        <h1>Borrow my Stuff</h1>
+        <div v-for="item in data">
+            <div class="d-flex">
+                <h2>{{item.title}}</h2>
+                <p>{{item.description}}</p>
+                <p>{{item.url}}</p>
+                <button @click="formForm(item)">Request</button>                
+            </div>
+        </div>
+        <button @click="log">Click</button>
+    </section>
+
+        <script type="module">
+            import { createApp } from 'https://unpkg.com/petite-vue?module'
+            let url = 'https://api.sheety.co/7016cabf6b37601c93f0bcbd5ec85980/testForWeb/main';
+
+            fetch(url)
+.then((response) => response.json())
+.then(json => {
+  console.log(json.main);
+  createApp({
+                data : json.main,
+                log() {
+                    console.log(this.lendItems)
+                },
+                requestItem(param) {
+                    fetch(`/item?email=${param}`)
+                },
+                formForm(item) {
+                    fetch(`https://docs.google.com/forms/d/e/1FAIpQLSfxOEOVuiuAWuz2ItL08MyeFDXUGBWHCWOj8My8isYBX0ilGQ/formResponse?entry.664743125=${item.title}&entry.1206457380=${item.description}&entry.430716838=Another%20Url%20Example1`)
+                }
+            }).mount('#root')   
+});     
+          </script>
+</body>
+</html>
